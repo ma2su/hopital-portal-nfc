@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:10.11
+    container_name: dpi_bdd
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: DPI
+      MYSQL_USER: sven
+      MYSQL_PASSWORD: sven
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - reseau_hopital
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dpi_web
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./site_web:/var/www/html
+      - .:/var/log/apache2
+    depends_on:
+      - db
+    networks:
+      - reseau_hopital
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: dpi_phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+      - PMA_VERSION_CHECK=false
+    depends_on:
+      - db
+    networks:
+      - reseau_hopital
+
+volumes:
+  db_data:
+
+networks:
+  reseau_hopital:
