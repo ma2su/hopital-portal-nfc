@@ -5,7 +5,7 @@
 [![MariaDB](https://img.shields.io/badge/MariaDB-11-003545?logo=mariadb&logoColor=white)](https://mariadb.org/)
 [![NFC](https://img.shields.io/badge/Hardware-ACR122U%20NFC-00599C)](#-fonctionnement-du-scan-nfc)
 
-Plateforme web hospitalière conteneurisée permettant la gestion du **Dossier Patient Informatisé (DPI)** et le **Contrôle d'accès physique aux locaux**, intégrant une authentification double-mode : classique (identifiants / mot de passe) et **sans contact via lecteur RFID/NFC (ACR122U)**.
+La plateforme web hospitalière conteneurisée permettant la gestion du **Dossier Patient Informatisé (DPI)** et le **Contrôle d'accès physique aux locaux**, intégrant une authentification double-mode : classique (identifiants / mot de passe) et **sans contact via lecteur RFID/NFC (ACR122U)**.
 
 ---
 
